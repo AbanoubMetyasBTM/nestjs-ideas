@@ -1,0 +1,3 @@
+nest g mo comment
+nest g controller comment
+nest g service comment
