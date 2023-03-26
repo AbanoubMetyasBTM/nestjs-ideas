@@ -1,0 +1,519 @@
+{
+	"info": {
+		"_postman_id": "dcd8722c-6ff8-4482-a1b9-2eefa150b1f0",
+		"name": "Ideas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3084562"
+	},
+	"item": [
+		{
+			"name": "Crud Ideas",
+			"item": [
+				{
+					"name": "bookmarks",
+					"item": [
+						{
+							"name": "Bookmark Idea",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/idea/902e576e-572d-485f-9575-da96d453c77b/bookmark",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"idea",
+										"902e576e-572d-485f-9575-da96d453c77b",
+										"bookmark"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UnBookmark Idea",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/idea/2fa033d3-ff2f-4b00-bcd6-ea2c7da34cbf/bookmark",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"idea",
+										"2fa033d3-ff2f-4b00-bcd6-ea2c7da34cbf",
+										"bookmark"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "votes",
+					"item": [
+						{
+							"name": "upvote",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/idea/902e576e-572d-485f-9575-da96d453c77b/upvote",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"idea",
+										"902e576e-572d-485f-9575-da96d453c77b",
+										"upvote"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "downvote",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/idea/902e576e-572d-485f-9575-da96d453c77b/downvote",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"idea",
+										"902e576e-572d-485f-9575-da96d453c77b",
+										"downvote"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "comments",
+					"item": [
+						{
+							"name": "add comment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"comment\" : \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/comments/idea/902e576e-572d-485f-9575-da96d453c77b",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"comments",
+										"idea",
+										"902e576e-572d-485f-9575-da96d453c77b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete comment",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"comment\" : \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/comments/60df35c8-62a3-432b-915a-6ab98252797e",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"comments",
+										"60df35c8-62a3-432b-915a-6ab98252797e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get Idea comments",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/comments/idea/902e576e-572d-485f-9575-da96d453c77b?page=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"comments",
+										"idea",
+										"902e576e-572d-485f-9575-da96d453c77b"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get User comments",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/comments/user/db1d3bde-7ae3-4ed0-a0c4-eba19e025aef?page=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"comments",
+										"user",
+										"db1d3bde-7ae3-4ed0-a0c4-eba19e025aef"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/idea?page=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"idea"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Idea",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/idea/902e576e-572d-485f-9575-da96d453c77b",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"idea",
+								"902e576e-572d-485f-9575-da96d453c77b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Idea",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idea\": \"1\",\n    \"description\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/idea",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"idea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Idea",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idea\": \"111\",\n    \"description\": \"222\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/idea/2fa033d3-ff2f-4b00-bcd6-ea2c7da34cbf",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"idea",
+								"2fa033d3-ff2f-4b00-bcd6-ea2c7da34cbf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Idea",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/idea/2fa033d3-ff2f-4b00-bcd6-ea2c7da34cbf",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"idea",
+								"2fa033d3-ff2f-4b00-bcd6-ea2c7da34cbf"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/users?page=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"bob2\",\n    \"password\":\"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"mets\",\n    \"password\":\"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
