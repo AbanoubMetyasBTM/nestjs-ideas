@@ -6,6 +6,7 @@ import { HttpException, HttpStatus } from "@nestjs/common";
 import { UserEntity } from "../user/user.entity";
 import { BookmarksActionsEnum } from "../shared/BookmarksActionsEnum";
 import { VoteActionsEnum } from "../shared/VoteActionsEnum";
+import { AppGateway } from "../app.gateway";
 
 export class IdeaService {
 
@@ -13,7 +14,9 @@ export class IdeaService {
     @InjectRepository(IdeaEntity)
     private ideaRepository: Repository<IdeaEntity>,
     @InjectRepository(UserEntity)
-    private userRepository: Repository<UserEntity>
+    private userRepository: Repository<UserEntity>,
+
+    private socket: AppGateway
   ) {
 
   }
@@ -55,6 +58,8 @@ export class IdeaService {
       ...data, author: user
     });
     await this.ideaRepository.save(idea);
+
+    this.socket.wss.emit("newIdea", this.toResponseObj(idea));
 
     return this.toResponseObj(idea);
   }
