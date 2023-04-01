@@ -2,12 +2,13 @@ import { Repository } from "typeorm";
 import { IdeaEntity } from "./idea.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { IdeaDto, IdeaRO } from "./idea.dto";
-import { HttpException, HttpStatus } from "@nestjs/common";
+import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import { UserEntity } from "../user/user.entity";
 import { BookmarksActionsEnum } from "../shared/BookmarksActionsEnum";
 import { VoteActionsEnum } from "../shared/VoteActionsEnum";
 import { AppGateway } from "../app.gateway";
 
+@Injectable()
 export class IdeaService {
 
   constructor(

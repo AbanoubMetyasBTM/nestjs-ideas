@@ -1,12 +1,15 @@
 import { IsString } from "class-validator";
 import { UserRO } from "../user/user.dto";
 import { UserEntity } from "../user/user.entity";
+import { ApiProperty } from "@nestjs/swagger";
 
 export class IdeaDto {
   @IsString()
+  @ApiProperty()
   idea: string;
 
   @IsString()
+  @ApiProperty()
   description: string;
 }
 
