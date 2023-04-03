@@ -18,12 +18,25 @@ export class UserDto {
 }
 
 export class UserRO {
+
+
+  @ApiProperty()
   id: string;
+
+  @ApiProperty()
   username: string;
+
+  @ApiProperty()
   created: Date;
+
+  @ApiProperty()
   token?: string;
-  ideas?: IdeaRO[]
-  bookmarks?: IdeaRO[]
+
+  @ApiProperty()
+  ideas?: IdeaRO[];
+
+  @ApiProperty()
+  bookmarks?: IdeaRO[];
 
 }
 

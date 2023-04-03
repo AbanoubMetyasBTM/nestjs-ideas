@@ -1,11 +1,12 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards, UsePipes } from "@nestjs/common";
 import { IdeaService } from "./idea.service";
-import { IdeaDto } from "./idea.dto";
+import { IdeaDto, IdeaRO } from "./idea.dto";
 import { ValidationPipe } from "../shared/validation.pipe";
 import { AuthGuard } from "../shared/auth.guard";
 import { User } from "../user/user.decorator";
 import { BookmarksActionsEnum } from "../shared/BookmarksActionsEnum";
 import { VoteActionsEnum } from "../shared/VoteActionsEnum";
+import { ApiBearerAuth, ApiCreatedResponse } from "@nestjs/swagger";
 
 @Controller("api/idea")
 export class IdeaController {
@@ -15,7 +16,7 @@ export class IdeaController {
 
   @Get()
   showAllIdeas(
-    @Query("page") page:number,
+    @Query("page") page: number
   ) {
     return this.ideaService.showAll(page);
   }
@@ -23,6 +24,11 @@ export class IdeaController {
   @Post()
   @UsePipes(new ValidationPipe())
   @UseGuards(new AuthGuard())
+  @ApiBearerAuth('authorization') //edit here
+  @ApiCreatedResponse({
+    description: "Created idea object as response",
+    type: IdeaRO,
+  })
   createIdea(
     @User("id") userId,
     @Body() data: IdeaDto
@@ -91,7 +97,6 @@ export class IdeaController {
   ) {
     return this.ideaService.vote(id, userId, VoteActionsEnum.down);
   }
-
 
 
 }

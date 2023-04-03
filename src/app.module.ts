@@ -2,7 +2,7 @@ import { Module } from "@nestjs/common";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { ORMConfig } from "../ormconfig";
+import { ORMConfig } from "./config/typeorm/ormconfig";
 import { IdeaModule } from "./idea/idea.module";
 import { APP_FILTER, APP_INTERCEPTOR } from "@nestjs/core";
 import { HttpErrorFilter } from "./shared/http-error.filter";
